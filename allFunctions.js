@@ -9,3 +9,9 @@ function sliceIndex(index){
   }
   return +value;
 }
+
+
+function rollADice(){
+  return 1 + Math.floor(Math.random() * 6)
+  
+}
