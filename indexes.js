@@ -8,3 +8,9 @@ const blueFirstIndex = 520;
 const yellowFirstIndex = 203;
 const greenFirstIndex = 789;
 const whiteFirstIndex = 1106;
+
+//Middle line indices
+const bluePath = '0635-0640-0645';
+const yellowPath = '0198-0312-0426';
+const greenPath = '0675-0670-0665';
+const whitePath = '1111-0997-0883';
