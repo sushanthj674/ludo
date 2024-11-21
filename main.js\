@@ -1,3 +1,8 @@
+const ludoBigLetters = "\tL       |  U   U | DDDD    | OOOO \n" +
+"\tL       |  U   U | D    D  | O  O\n" +
+"\tL       |  U   U | D    D  | O  O\n" +
+"\tLLLLL   |  UUUUU | DDDD    | OOOO ";
+
 const pathIndex = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515';//starting from first box of blue
 const bluePath = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0635-0640-0645';
 const yellowPath = '0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0198-0312-0426';
@@ -134,7 +139,6 @@ function validateScores() {
 }
 
 function moveto(currentPosition, nextPosition, replacement) {
-  console.log('debug');
   let newBox = "";
   let space = 0;
   if (replacement === '💙' || replacement === '💛' || replacement === '💚' || replacement === '🤍') {
@@ -155,7 +159,9 @@ function moveto(currentPosition, nextPosition, replacement) {
 }
 let diceVal = 0;
 function gameCore() {
-  // console.clear();
+  console.clear();
+
+  console.log(ludoBigLetters);
   printBox();
   validateScores();
   if (greenScore >= 39) {
@@ -235,7 +241,6 @@ function gameCore() {
   }
   recursionControlVar += 1;
   // printBox();
-  console.clear();
   return gameCore();
 }
 // printBox()
