@@ -15,3 +15,36 @@ function rollADice(){
   return 1 + Math.floor(Math.random() * 6)
   
 }
+
+
+//Moving purpose
+
+let box01 ="🟩";
+let box =""
+
+
+function firstDefinition(){
+  box = 
+  '\n┏━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓\n┃ ┏━━━━━━━━━━━━━━━━┓┃              ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃    ┏━━━━┓    ┃┃                ┃ ┃\n┃ ┃  '+box01+'            ┃┃    ┃    ┃    ┃┃                ┃ ┃\n┃ ┃                ┃┃    ┣━━━━┫    ┃┃                ┃ ┃\n┃ ┃                ┃┃    ┃    ┃    ┃┃                ┃ ┃\n┃ ┃                ┃┃    ┣━━━━┫    ┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┃    ┃    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┣━━━━━━━━━━━━━━━━━━━╋━━━━┻━━━━┻━━━━╋━━━━━━━━━━━━━━━━━━━┫\n┃                   ┃              ┃                   ┃ \n┃    ┏━━━━┳━━━━┳━━━━┫              ┣━━━━┳━━━━┳━━━━┓    ┃\n┃    ┃    ┃    ┃    ┃              ┃    ┃    ┃    ┃    ┃\n┃    ┗━━━━┻━━━━┻━━━━┫              ┣━━━━┻━━━━┻━━━━┛    ┃\n┃                   ┃              ┃                   ┃\n┣━━━━━━━━━━━━━━━━━━━╋━━━━┳━━━━┳━━━━╋━━━━━━━━━━━━━━━━━━━┫\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┃    ┃    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃    ┣━━━━┫    ┃┃                ┃ ┃\n┃ ┃      '+ box01 + '        ┃┃    ┃    ┃    ┃┃                ┃ ┃\n┃ ┃                ┃┃    ┣━━━━┫    ┃┃                ┃ ┃\n┃ ┃                ┃┃    ┃    ┃    ┃┃                ┃ ┃\n┃ ┃                ┃┃    ┗━━━━┛    ┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃              ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┗━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━┛';
+}
+function printBox(){
+  
+  console.log(box);
+}
+
+function moveto(currentPosition, nextPosition, replacement){
+  let newBox = "";
+
+  for(let index = 0; index < box.length; index += 1 ){ 
+    
+   if(index === currentPosition || index === currentPosition + 1){
+    newBox += " ";
+   }else if(index === nextPosition || index === nextPosition + 1){
+    newBox += index === nextPosition ? replacement[0] : replacement[1];
+   }else{
+    newBox+= box[index];
+   }
+  }
+
+  box =newBox;
+}
