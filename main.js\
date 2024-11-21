@@ -38,11 +38,17 @@ let greenHeartpos = -1;
 let blueHeartpos = -1;
 let yellowHeartpos = -1;
 let whiteHeartpos = -1;
+
 let greenCirclepos = -1;
 let blueCirclepos = -1;
 let yellowCirclepos = -1;
 let whiteCirclepos = -1;
 
+let greenScore = 0;
+let yellowScore = 0;
+let blueScore = 0;
+let whiteScore = 0;
+let recursionControlVar = 0;
 let blueC = "  ";
 let blueH = "  ";
 let blueS = "  ";
@@ -82,10 +88,11 @@ greenC = greenCircle;
 greenH = greenHeart;
 greenS = greenSquare;
 greenA = greenAnimal;
-let box = '';
+let box = '\n┏━━━━━━━━━━━━━━━━━━━┳━━━━┯━━━━┯━━━━┳━━━━━━━━━━━━━━━━━━━┓\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┆    ┆    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┟━━━━┪┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + blueC + '    ' + blueH + '    ┃┃    ┃    ┃    ┃┃    ' + yellowC + '    ' + yellowH + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + blueS + '    ' + blueA + '    ┃┃    ┃    ┃    ┃┃    ' + yellowS + '    ' + yellowA + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┃    ┃    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┣━━━━┯━━━━┯━━━━┯━━━━╋━━━━┻━━━━┻━━━━╋━━━━┯━━━━┯━━━━┯━━━━┫\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃ \n┃┄┄┄┄┟━━━━╈━━━━╈━━━━┫              ┣━━━━╈━━━━╈━━━━┪┄┄┄┄┃\n┃    ┃    ┃    ┃    ┃              ┃    ┃    ┃    ┃    ┃\n┃┄┄┄┄┡━━━━╇━━━━╇━━━━┫              ┣━━━━╇━━━━╇━━━━╇┄┄┄┄┃\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃\n┣━━━━┷━━━━┷━━━━┷━━━━╋━━━━┳━━━━┳━━━━╋━━━━┷━━━━┷━━━━┷━━━━┫\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┃    ┃    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + whiteC + '    ' + whiteH + '    ┃┃    ┃    ┃    ┃┃    ' + greenC + '    ' + greenH + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + whiteS + '    ' + whiteA + '    ┃┃    ┃    ┃    ┃┃    ' + greenS + '    ' + greenA + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┡━━━━╇┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┆    ┆    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┗━━━━━━━━━━━━━━━━━━━┻━━━━┷━━━━┷━━━━┻━━━━━━━━━━━━━━━━━━━┛';
+function rollADice() {
+  return Math.ceil(Math.random() * 6);
+}
 function printBox() {
-  box =
-    '\n┏━━━━━━━━━━━━━━━━━━━┳━━━━┯━━━━┯━━━━┳━━━━━━━━━━━━━━━━━━━┓\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┆    ┆    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┟━━━━┪┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + blueC + '    ' + blueH + '    ┃┃    ┃    ┃    ┃┃    ' + yellowC + '    ' + yellowH + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + blueS + '    ' + blueA + '    ┃┃    ┃    ┃    ┃┃    ' + yellowS + '    ' + yellowA + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┃    ┃    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┣━━━━┯━━━━┯━━━━┯━━━━╋━━━━┻━━━━┻━━━━╋━━━━┯━━━━┯━━━━┯━━━━┫\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃ \n┃┄┄┄┄┟━━━━╈━━━━╈━━━━┫              ┣━━━━╈━━━━╈━━━━┪┄┄┄┄┃\n┃    ┃    ┃    ┃    ┃              ┃    ┃    ┃    ┃    ┃\n┃┄┄┄┄┡━━━━╇━━━━╇━━━━┫              ┣━━━━╇━━━━╇━━━━╇┄┄┄┄┃\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃\n┣━━━━┷━━━━┷━━━━┷━━━━╋━━━━┳━━━━┳━━━━╋━━━━┷━━━━┷━━━━┷━━━━┫\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┃    ┃    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + whiteC + '    ' + whiteH + '    ┃┃    ┃    ┃    ┃┃    ' + greenC + '    ' + greenH + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + whiteS + '    ' + whiteA + '    ┃┃    ┃    ┃    ┃┃    ' + greenS + '    ' + greenA + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┡━━━━╇┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┆    ┆    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┗━━━━━━━━━━━━━━━━━━━┻━━━━┷━━━━┷━━━━┻━━━━━━━━━━━━━━━━━━━┛';
   console.log(box);
 }
 
@@ -100,24 +107,136 @@ function getCellAdderss(addressBook, cellNumber) {
 
 function CheckAndKill(colorAddressBook, nextPosition) {
   const movingAddress = getCellAdderss(colorAddressBook, nextPosition);
-  if (colorAddressBook !== greenPath && movingAddress === getCellAdderss(greenPath, greenCirclePos)) {
-    greenCirclePos = greenCircleInitialpos;
-  } else if (colorAddressBook !== greenPath && movingAddress === getCellAdderss(greenPath, greenHeartPos)) {
+  if (colorAddressBook !== greenPath && movingAddress === getCellAdderss(greenPath, greenCirclepos)) {
+    greenCirclepos = greenCircleInitialpos;
+  } else if (colorAddressBook !== greenPath && movingAddress === getCellAdderss(greenPath, greenHeartpos)) {
     greenHeartpos = greenHeartInitialpos;
-  } else if (colorAddressBook !== yellowPath && movingAddress === getCellAdderss(yellowPath, yellowHeartPos)) {
+  } else if (colorAddressBook !== yellowPath && movingAddress === getCellAdderss(yellowPath, yellowHeartpos)) {
     yellowHeartpos = yellowHeartInitialpos;
-  } else if (colorAddressBook !== yellowPath && movingAddress === getCellAdderss(yellowPath, yellowCirclePos)) {
+  } else if (colorAddressBook !== yellowPath && movingAddress === getCellAdderss(yellowPath, yellowCirclepos)) {
     yellowCirclePos = yellowCircleInitialpos;
-  } else if (colorAddressBook !== whitePath && movingAddress === getCellAdderss(whitePath, whiteHeartPos)) {
-    whiteHeartPos = whiteHeartInitialpos;
-  } else if (colorAddressBook !== whitePath && movingAddress === getCellAdderss(whitePath, whiteCirclePos)) {
-    whiteCirclePos = whiteCircleInitialpos;
-  } else if (colorAddressBook !== bluePath && movingAddress === getCellAdderss(bluePath, blueHeartPos)) {
-    blueHeartPos = blueHeartInitialpos;
-  } else if (colorAddressBook !== bluePath && movingAddress === getCellAdderss(bluePath, blueCirclePos)) {
-    blueCirclePos = blueCircleInitialpoblue;
+  } else if (colorAddressBook !== whitePath && movingAddress === getCellAdderss(whitePath, whiteHeartpos)) {
+    whiteHeartpos = whiteHeartInitialpos;
+  } else if (colorAddressBook !== whitePath && movingAddress === getCellAdderss(whitePath, whiteCirclepos)) {
+    whiteCirclepos = whiteCircleInitialpos;
+  } else if (colorAddressBook !== bluePath && movingAddress === getCellAdderss(bluePath, blueHeartpos)) {
+    blueHeartpos = blueHeartInitialpos;
+  } else if (colorAddressBook !== bluePath && movingAddress === getCellAdderss(bluePath, blueCirclepos)) {
+    blueCirclePos = blueCircleInitialpos;
   }
 }
 
-printBox();
+function validateScores() {
+  greenScore = (greenCirclepos + greenHeartpos) / 2;
+  yellowScore = (yellowCirclepos + yellowHeartpos) / 2;
+  blueScore = (blueCirclepos + blueHeartpos) / 2;
+  whiteScore = (whiteCirclepos + whiteHeartpos) / 2;
+}
 
+function moveto(currentPosition, nextPosition, replacement) {
+  console.log('debug');
+  let newBox = "";
+  let space = 0;
+  if (replacement === '💙' || replacement === '💛' || replacement === '💚' || replacement === '🤍') {
+    space -= 2;
+  }
+  for (let index = 0; index < box.length; index += 1) {
+
+    if (index + space === currentPosition || index + space === currentPosition + 1) {
+      newBox += " ";
+    } else if (index + space === nextPosition || index + space === nextPosition + 1) {
+      newBox += index + space === nextPosition ? replacement[0] : replacement[1];
+    } else {
+      newBox += box[index];
+    }
+  }
+
+  box = newBox;
+}
+let diceVal = 0;
+function gameCore() {
+  // console.clear();
+  printBox();
+  validateScores();
+  if (greenScore >= 39) {
+    return 'green won🏆 the match🎉🥳';
+  } else if (yellowScore >= 39) {
+    return 'yellow won🏆 the match🎉🥳';
+  } else if (blueScore >= 39) {
+    return 'blue won🏆 the match🎉🥳';
+  } else if (whiteScore >= 39) {
+    return 'white won🏆 the match🎉🥳';
+  }
+
+  if (recursionControlVar % 4 === 1) {
+    prompt("blue choice press ENTER to roll dice");
+    diceVal = rollADice();
+    if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
+      const lastPos = getCellAdderss(bluePath, blueHeartpos);
+      blueHeartpos += diceVal;
+      const currentPos = getCellAdderss(bluePath, blueHeartpos);
+      moveto(lastPos, currentPos, blueHeart);
+      CheckAndKill(bluePath, blueHeartpos);
+    } else {
+      const lastPos = getCellAdderss(bluePath, blueCirclepos);
+      blueCirclepos += diceVal;
+      const currentPos = getCellAdderss(bluePath, blueCirclepos);
+      moveto(lastPos, currentPos, blueCircle);
+      CheckAndKill(bluePath, blueCircle);
+    }
+  } else if (recursionControlVar % 4 === 2) {
+    prompt("yellow choice press ENTER to roll dice");
+    diceVal = rollADice();
+    if (confirm("you got !!! " + diceVal + "press 'Y' to move heart ")) {
+      const lastPos = getCellAdderss(yellowPath, yellowHeartpos);
+      yellowHeartpos += diceVal;
+      const currentPos = getCellAdderss(yellowPath, yellowHeartpos);
+      moveto(lastPos, currentPos, yellowHeart);
+      CheckAndKill(yellowPath, yellowHeartpos);
+    } else {
+      const lastPos = getCellAdderss(yellowPath, yellowCirclepos);
+      yellowCirclepos += diceVal;
+      const currentPos = getCellAdderss(yellowPath, yellowCirclepos);
+      moveto(lastPos, currentPos, yellowCircle);
+      CheckAndKill(yellowPath, yellowCircle);
+    }
+  } else if (recursionControlVar % 4 === 3) {
+    prompt("green choice press ENTER to roll dice");
+    diceVal = rollADice();
+    if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
+      const lastPos = getCellAdderss(greenPath, greenHeartpos);
+      greenHeartpos += diceVal;
+      const currentPos = getCellAdderss(greenPath, greenHeartpos);
+      moveto(lastPos, currentPos, greenHeart);
+      CheckAndKill(greenPath, greenHeartpos);
+    } else {
+      const lastPos = getCellAdderss(greenPath, greenCirclepos);
+      greenCirclepos += diceVal;
+      const currentPos = getCellAdderss(greenPath, greenCirclepos);
+      moveto(lastPos, currentPos, greenCircle);
+      CheckAndKill(greenPath, greenCircle);
+    }
+  } else if (recursionControlVar % 4 === 0) {
+    prompt("white choice press ENTER to roll dice");
+    diceVal = rollADice();
+    if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
+      const lastPos = getCellAdderss(whitePath, greenHeartpos);
+      whiteHeartpos += diceVal;
+      const currentPos = getCellAdderss(whitePath, whiteHeartpos);
+      moveto(lastPos, currentPos, whiteHeart);
+      CheckAndKill(whitePath, whiteHeartpos);
+    } else {
+      const lastPos = getCellAdderss(whitePath, whiteCirclepos);
+      whiteCirclepos += diceVal;
+      const currentPos = getCellAdderss(whitePath, whiteCirclepos);
+      moveto(lastPos, currentPos, whiteCircle);
+      CheckAndKill(whitePath, whiteCircle);
+    }
+  }
+  recursionControlVar += 1;
+  // printBox();
+  console.clear();
+  return gameCore();
+}
+// printBox()
+console.log(gameCore());
