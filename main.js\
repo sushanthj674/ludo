@@ -1,5 +1,123 @@
-console.clear();
-// const     pce = '                                '
-const box = 
-'\n┏━━━━━━━━━━━━━━━━━━━┳━━━━┯━━━━┯━━━━┳━━━━━━━━━━━━━━━━━━━┓\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┆    ┆    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┟━━━━┪┄┄┄┄┃┃                ┃ ┃\n┃ ┃                ┃┃    ┃    ┃    ┃┃                ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃                ┃┃    ┃    ┃    ┃┃                ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┃    ┃    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┣━━━━┯━━━━┯━━━━┯━━━━╋━━━━┻━━━━┻━━━━╋━━━━┯━━━━┯━━━━┯━━━━┫\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃ \n┃┄┄┄┄┟━━━━╈━━━━╈━━━━┫              ┣━━━━╈━━━━╈━━━━┪┄┄┄┄┃\n┃    ┃    ┃    ┃    ┃              ┃    ┃    ┃    ┃    ┃\n┃┄┄┄┄┡━━━━╇━━━━╇━━━━┫              ┣━━━━╇━━━━╇━━━━╇┄┄┄┄┃\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃\n┣━━━━┷━━━━┷━━━━┷━━━━╋━━━━┳━━━━┳━━━━╋━━━━┷━━━━┷━━━━┷━━━━┫\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┃    ┃    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃                ┃┃    ┃    ┃    ┃┃                ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃                ┃┃    ┃    ┃    ┃┃                ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┡━━━━╇┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┆    ┆    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┗━━━━━━━━━━━━━━━━━━━┻━━━━┷━━━━┷━━━━┻━━━━━━━━━━━━━━━━━━━┛';
-console.log(box);
+const pathIndex = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515';//starting from first box of blue
+const bluePath = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0635-0640-0645';
+const yellowPath = '0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0198-0312-0426';
+const greenPath = '0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0550-0555-0560-0565-0680-0794-0675-0670-0665';
+const whitePath = '1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1111-0997-0883';
+
+const blueCircle = '🔵';
+const blueHeart = '💙';
+const blueSquare = '🟦';
+const blueAnimal = '🪼';
+
+const yellowCircle = '🟡';
+const yellowHeart = '💛';
+const yellowSquare = '🟨';
+const yellowAnimal = '🐥';
+
+const greenCircle = '🟢';
+const greenHeart = '💚';
+const greenSquare = '🟩';
+const greenAnimal = '🐢';
+
+const whiteCircle = '⚪️';
+const whiteHeart = '🤍';
+const whiteSquare = '⬜️';
+const whiteAnimal = '🐼';
+
+const blueHeartInitialpos = 185;
+const yellowHeartInitialpos = 219;
+const greenHeartInitialpos = 1018;
+const whiteHeartInitialpos = 984;
+
+const blueCircleInitialpos = 179;
+const yellowCircleInitialpos = 213;
+const greenCircleInitialpos = 1012;
+const whiteCircleInitialpos = 978;
+
+let greenHeartpos = -1;
+let blueHeartpos = -1;
+let yellowHeartpos = -1;
+let whiteHeartpos = -1;
+let greenCirclepos = -1;
+let blueCirclepos = -1;
+let yellowCirclepos = -1;
+let whiteCirclepos = -1;
+
+let blueC = "  ";
+let blueH = "  ";
+let blueS = "  ";
+let blueA = "  ";
+
+let yellowC = "  ";
+let yellowH = "  ";
+let yellowS = "  ";
+let yellowA = "  ";
+
+let whiteC = "  ";
+let whiteH = "  ";
+let whiteS = "  ";
+let whiteA = "  ";
+
+let greenC = "  ";
+let greenH = "  ";
+let greenS = "  ";
+let greenA = "  ";
+
+blueC = blueCircle;
+blueH = blueHeart;
+blueS = blueSquare;
+blueA = blueAnimal;
+
+yellowC = yellowCircle;
+yellowH = yellowHeart;
+yellowS = yellowSquare;
+yellowA = yellowAnimal;
+
+whiteC = whiteCircle;
+whiteH = whiteHeart;
+whiteS = whiteSquare;
+whiteA = whiteAnimal;
+
+greenC = greenCircle;
+greenH = greenHeart;
+greenS = greenSquare;
+greenA = greenAnimal;
+let box = '';
+function printBox() {
+  box =
+    '\n┏━━━━━━━━━━━━━━━━━━━┳━━━━┯━━━━┯━━━━┳━━━━━━━━━━━━━━━━━━━┓\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┆    ┆    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┟━━━━┪┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + blueC + '    ' + blueH + '    ┃┃    ┃    ┃    ┃┃    ' + yellowC + '    ' + yellowH + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + blueS + '    ' + blueA + '    ┃┃    ┃    ┃    ┃┃    ' + yellowS + '    ' + yellowA + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┃    ┃    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┣━━━━┯━━━━┯━━━━┯━━━━╋━━━━┻━━━━┻━━━━╋━━━━┯━━━━┯━━━━┯━━━━┫\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃ \n┃┄┄┄┄┟━━━━╈━━━━╈━━━━┫              ┣━━━━╈━━━━╈━━━━┪┄┄┄┄┃\n┃    ┃    ┃    ┃    ┃              ┃    ┃    ┃    ┃    ┃\n┃┄┄┄┄┡━━━━╇━━━━╇━━━━┫              ┣━━━━╇━━━━╇━━━━╇┄┄┄┄┃\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃\n┣━━━━┷━━━━┷━━━━┷━━━━╋━━━━┳━━━━┳━━━━╋━━━━┷━━━━┷━━━━┷━━━━┫\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┃    ┃    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + whiteC + '    ' + whiteH + '    ┃┃    ┃    ┃    ┃┃    ' + greenC + '    ' + greenH + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + whiteS + '    ' + whiteA + '    ┃┃    ┃    ┃    ┃┃    ' + greenS + '    ' + greenA + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┡━━━━╇┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┆    ┆    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┗━━━━━━━━━━━━━━━━━━━┻━━━━┷━━━━┷━━━━┻━━━━━━━━━━━━━━━━━━━┛';
+  console.log(box);
+}
+
+function getCellAdderss(addressBook, cellNumber) {
+  let address = '';
+  const start = (cellNumber - 1) * 5;
+  for (let i = start; i < start + 4; i++) {
+    address += addressBook[i];
+  }
+  return +address;
+}
+
+function CheckAndKill(colorAddressBook, nextPosition) {
+  const movingAddress = getCellAdderss(colorAddressBook, nextPosition);
+  if (colorAddressBook !== greenPath && movingAddress === getCellAdderss(greenPath, greenCirclePos)) {
+    greenCirclePos = greenCircleInitialpos;
+  } else if (colorAddressBook !== greenPath && movingAddress === getCellAdderss(greenPath, greenHeartPos)) {
+    greenHeartpos = greenHeartInitialpos;
+  } else if (colorAddressBook !== yellowPath && movingAddress === getCellAdderss(yellowPath, yellowHeartPos)) {
+    yellowHeartpos = yellowHeartInitialpos;
+  } else if (colorAddressBook !== yellowPath && movingAddress === getCellAdderss(yellowPath, yellowCirclePos)) {
+    yellowCirclePos = yellowCircleInitialpos;
+  } else if (colorAddressBook !== whitePath && movingAddress === getCellAdderss(whitePath, whiteHeartPos)) {
+    whiteHeartPos = whiteHeartInitialpos;
+  } else if (colorAddressBook !== whitePath && movingAddress === getCellAdderss(whitePath, whiteCirclePos)) {
+    whiteCirclePos = whiteCircleInitialpos;
+  } else if (colorAddressBook !== bluePath && movingAddress === getCellAdderss(bluePath, blueHeartPos)) {
+    blueHeartPos = blueHeartInitialpos;
+  } else if (colorAddressBook !== bluePath && movingAddress === getCellAdderss(bluePath, blueCirclePos)) {
+    blueCirclePos = blueCircleInitialpoblue;
+  }
+}
+
+printBox();
+
