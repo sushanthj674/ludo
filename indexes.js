@@ -6,5 +6,5 @@ const pathIndex = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0
 
 const blueFirstIndex = 520;
 const yellowFirstIndex = 203;
-const whiteFirstIndex = 789;
-const greenFirstIndex = 1106;
+const greenFirstIndex = 789;
+const whiteFirstIndex = 1106;
