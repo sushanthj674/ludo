@@ -14,3 +14,9 @@ const bluePath = '0635-0640-0645';
 const yellowPath = '0198-0312-0426';
 const greenPath = '0675-0670-0665';
 const whitePath = '1111-0997-0883';
+
+
+const yellowLast = 538;
+const bluedLast =   651
+const greenLast = 659;
+const whiteLast = 768;
