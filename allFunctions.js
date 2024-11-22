@@ -131,3 +131,13 @@ moveto(183,421,'💙');
 printBox();
 moveto(179,421,'🔵');
 printBox();
+
+
+function inTerritory(colorPath, currentPos, diceValue) {
+
+  if (currentPos + diceValue < 40) {
+    moveto(getCellAdderss(colorPath, currentPos + diceValue));
+    return currentPos + diceValue;
+  }
+  return currentPos;
+}
