@@ -188,7 +188,6 @@ function executeBlueCircle() {
 }
 // ----------------------------------------------------------------------
 function executeBlue() {
-  prompt("blue choice press ENTER to roll dice");
   diceVal = rollADice();
   if (blueCirclepos + diceVal <= 38 && blueHeartpos + diceVal <= 38) {
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
@@ -208,7 +207,6 @@ function executeBlue() {
 }
 
 function executeYellow() {
-  prompt("blue choice press ENTER to roll dice");
 
   if (yellowCirclepos + diceVal <= 38 && yellowHeartpos + diceVal <= 38) {
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
@@ -264,7 +262,6 @@ function executeWhiteCircle() {
 }
 // ----------------------------------------------------------------------
 function executeWhite() {
-  prompt("white choice press ENTER to roll dice");
 
   if (whiteCirclepos + diceVal <= 38 && whiteHeartpos + diceVal <= 38) {
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
@@ -302,7 +299,6 @@ function executeGreenCircle() {
 }
 // ----------------------------------------------------------------------
 function executeGreen() {
-  prompt("Green choice press ENTER to roll dice");
   if (greenCirclepos + diceVal <= 38 && greenHeartpos + diceVal <= 38) {
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
       return executeGreenHeart();
