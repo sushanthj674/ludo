@@ -3,11 +3,11 @@ const ludoBigLetters = "\tL       |  U   U | DDDD    | OOOO \n" +
 "\tL       |  U   U | D    D  | O  O\n" +
 "\tLLLLL   |  UUUUU | DDDD    | OOOO ";
 
-const pathIndex = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515';//starting from first box of blue
-const bluePath = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0635-0640-0645';
-const yellowPath = '0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0198-0312-0426';
-const greenPath = '0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0550-0555-0560-0565-0680-0794-0675-0670-0665';
-const whitePath = '1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0316-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1111-0997-0883';
+const pathIndex = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515';//starting from first box of blue
+const bluePath = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0635-0640-0645';
+const yellowPath = '0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0198-0312-0426';
+const greenPath = '0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0675-0670-0665';
+const whitePath = '1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1111-0997-0883';
 
 const blueCircle = '🔵';
 const blueHeart = '💙';
@@ -166,9 +166,18 @@ function moveto(currentPosition, nextPosition, replacement) {
 
   box = newBox;
 }
-let diceVal = 1;
+let diceVal = 0;
+
+function executeBlueHeart(){
+
+}
+
+function executeBlueCircle(){
+
+} 
+
 function gameCore() {
-  // console.clear();
+console.clear();
 
   console.log(ludoBigLetters);
   printBox();
@@ -191,7 +200,7 @@ function gameCore() {
       if(blueHeartpos + diceVal <= 38){
         blueHeartpos += diceVal;
         const currentPos = getCellAdderss(bluePath, blueHeartpos);
-        console.log(currentPos,blueHeartpos,'hii');
+       
         CheckAndKill(bluePath, blueHeartpos);
         moveto(box.lastIndexOf('💙') - 2, currentPos, blueHeart);
       }
@@ -200,22 +209,20 @@ function gameCore() {
         const lastPos = getCellAdderss(bluePath, blueCirclepos);
        blueCirclepos += diceVal;
        const currentPos = getCellAdderss(bluePath, blueCirclepos);
-       console.log(currentPos);
+       
        CheckAndKill(bluePath, blueCircle);
-       moveto(lastPos, currentPos, blueCircle);
+       moveto(box.lastIndexOf(blueCircle), currentPos, blueCircle);
       }
       
     }
   } else if (recursionControlVar % 4 === 2) {
     prompt("yellow choice press ENTER to roll dice");
-     diceVal = rollADice();
+     diceVal = 2;
     if (confirm("you got !!! " + diceVal + "press 'Y' to move heart ")) {
      if(yellowHeartpos <= 38){
       const lastPos = getCellAdderss(yellowPath, yellowHeartpos);
       yellowHeartpos += diceVal;
       const currentPos = getCellAdderss(yellowPath, yellowHeartpos);
-
-      console.log(currentPos);
       CheckAndKill(yellowPath, yellowHeartpos);
       moveto(box.lastIndexOf('💛') - 2, currentPos, yellowHeart);
      }
@@ -225,9 +232,9 @@ function gameCore() {
         const lastPos = getCellAdderss(yellowPath, yellowCirclepos);
         yellowCirclepos += diceVal;
         const currentPos = getCellAdderss(yellowPath, yellowCirclepos);
-        console.log(currentPos);
+      
         CheckAndKill(yellowPath, yellowCircle);
-        moveto(lastPos, currentPos, yellowCircle);
+        moveto(box.lastIndexOf(yellowCircle), currentPos, yellowCircle);
       }
      
     }
@@ -239,7 +246,7 @@ function gameCore() {
         const lastPos = getCellAdderss(greenPath, greenHeartpos);
       greenHeartpos += diceVal;
       const currentPos = getCellAdderss(greenPath, greenHeartpos);
-      console.log(currentPos);
+      
       CheckAndKill(greenPath, greenHeartpos);
       moveto(box.lastIndexOf('💚') - 2, currentPos, greenHeart);
       }
@@ -249,9 +256,9 @@ function gameCore() {
       const lastPos = getCellAdderss(greenPath, greenCirclepos);
       greenCirclepos += diceVal;
       const currentPos = getCellAdderss(greenPath, greenCirclepos);
-      console.log(currentPos);
+      
       CheckAndKill(greenPath, greenCircle);
-      moveto(lastPos, currentPos, greenCircle);
+      moveto(box.lastIndexOf(greenCircle), currentPos, greenCircle);
      }
      
     }
@@ -263,7 +270,7 @@ function gameCore() {
         const lastPos = getCellAdderss(whitePath, greenHeartpos);
         whiteHeartpos += diceVal;
         const currentPos = getCellAdderss(whitePath, whiteHeartpos);
-        console.log(currentPos);
+        
         CheckAndKill(whitePath, whiteHeartpos);
         moveto(box.lastIndexOf('🤍') - 2, currentPos, whiteHeart);
       }
@@ -273,9 +280,9 @@ function gameCore() {
         const lastPos = getCellAdderss(whitePath, whiteCirclepos);
         whiteCirclepos += diceVal;
         const currentPos = getCellAdderss(whitePath, whiteCirclepos);
-        console.log(currentPos);
+        
         CheckAndKill(whitePath, whiteCircle);
-        moveto(lastPos, currentPos, whiteCircle);
+        moveto(box.lastIndexOf(whiteCircle), currentPos, whiteCircle);
       }
     }
   }
