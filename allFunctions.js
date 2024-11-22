@@ -82,3 +82,28 @@ if(whiteCirclepos + diceVal <= 38){
 }
 
 }
+
+function executeBlue() {
+  prompt("blue choice press ENTER to roll dice");
+  diceVal = rollADice();
+  console.log("you got " + diceVal + "!!!");
+  if (diceVal !== 6 && (blueCirclepos === -1 && blueHeartpos === -1)) {
+  }
+
+  else if (diceVal === 6 && (blueCirclepos === -1 || blueHeartpos === -1)) {
+    checkBlue();
+  }
+
+  else if (blueCirclepos + diceVal <= 38 && blueHeartpos + diceVal <= 38) {
+    let selection = selectPawn();
+    return selection === 1 ? executeBlueCircle(diceVal) : executeBlueHeart(diceVal);
+
+  } else if (blueCirclepos + diceVal <= 38 || blueHeartpos + diceVal <= 38) {
+    if (blueCirclepos + diceVal <= 38) {
+      return executeBlueCircle(diceVal);
+    } else {
+      return executeBlueHeart(diceVal);
+    }
+  }
+
+}
