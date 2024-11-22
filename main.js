@@ -3,11 +3,11 @@ const ludoBigLetters = "\tL       |  U   U | DDDD    | OOOO \n" +
 "\tL       |  U   U | D    D  | O  O\n" +
 "\tLLLLL   |  UUUUU | DDDD    | OOOO ";
 
-const pathIndex = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515';
-const bluePath = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0635-0640-0645';
-const yellowPath = '0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0198-0312-0426';
-const greenPath = '0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0675-0670-0665';
-const whitePath = '1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1111-0997-0883';
+const pathIndex = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0656';
+const bluePath = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0635-0640-0645-0651';
+const yellowPath = '0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0198-0312-0426-0538';
+const greenPath = '0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0675-0670-0665-0659';
+const whitePath = '1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1111-0997-0883-0768';
 
 const blueCircle = '🔵';
 const blueHeart = '💙';
@@ -113,8 +113,6 @@ function getCellAdderss(addressBook, cellNumber) {
 
 function CheckAndKill(colorAddressBook, nextPosition) {
   const movingAddress = getCellAdderss(colorAddressBook, nextPosition);
-
-  console.log(nextPosition,movingAddress, getCellAdderss(bluePath, blueHeartpos));
   if (colorAddressBook !== greenPath && movingAddress === getCellAdderss(greenPath, greenCirclepos)) {
     greenCirclepos = -1;
     moveto(movingAddress, greenCircleInitialpos,greenCircle);
@@ -219,7 +217,7 @@ function gameCore() {
     }
   } else if (recursionControlVar % 4 === 2) {
     prompt("yellow choice press ENTER to roll dice");
-     diceVal = 2;
+     diceVal = 1;
     if (confirm("you got !!! " + diceVal + "press 'Y' to move heart ")) {
      if(yellowHeartpos <= 38){
       yellowHeartpos += diceVal;
@@ -240,7 +238,7 @@ function gameCore() {
     }
   } else if (recursionControlVar % 4 === 3) {
     prompt("green choice press ENTER to roll dice");
-     diceVal = rollADice();
+     diceVal = 1;
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
       if(greenHeartpos + diceVal <= 38){
       greenHeartpos += diceVal;
@@ -262,7 +260,7 @@ function gameCore() {
     }
   } else if (recursionControlVar % 4 === 0) {
     prompt("white choice press ENTER to roll dice");
-     diceVal = 3 ;
+     diceVal = 1 ;
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
       if(whiteHeartpos <= 38){
         
@@ -288,6 +286,6 @@ function gameCore() {
   return gameCore();
 }
 
-// printBox()
 console.log(gameCore());
+
 
