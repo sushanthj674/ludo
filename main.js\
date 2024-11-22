@@ -103,10 +103,11 @@ function printBox() {
 
 function getCellAdderss(addressBook, cellNumber) {
   let address = '';
-  const start = (cellNumber - 1) * 5;
+  const start = cellNumber * 5;
   for (let i = start; i < start + 4; i++) {
     address += addressBook[i];
   }
+  console.log(address);
   return +address;
 }
 
@@ -194,94 +195,117 @@ function moveto(currentPosition, nextPosition, replacement) {
 
   box = newBox;
 }
-let diceVal = 0;
+let diceVal = 1;
 function gameCore() {
   // console.clear();
 
   console.log(ludoBigLetters);
   printBox();
   validateScores();
-  if (greenHeartpos === 35 && greenCirclepos === 35) {
+  if (greenHeartpos === 38 && greenCirclepos === 38) {
     return 'green won🏆 the match🎉🥳';
-  } else if (yellowHeartpos === 35 && yellowCirclepos === 35) {
+  } else if (yellowHeartpos === 38 && yellowCirclepos === 38) {
     return 'yellow won🏆 the match🎉🥳';
-  } else if (blueHeartpos === 35 && blueCirclepos === 35) {
+  } else if (blueHeartpos === 38 && blueCirclepos === 38) {
     return 'blue won🏆 the match🎉🥳';
-  } else if (whiteHeartpos === 35 && whiteCirclepos === 35) {
+  } else if (whiteHeartpos === 38 && whiteCirclepos === 38) {
     return 'white won🏆 the match🎉🥳';
   }
 
   if (recursionControlVar % 4 === 1) {
     prompt("blue choice press ENTER to roll dice");
-    diceVal = rollADice();
+    // diceVal = rollADice();
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
       const lastPos = getCellAdderss(bluePath, blueHeartpos);
-      blueHeartpos += diceVal;
-      const currentPos = getCellAdderss(bluePath, blueHeartpos);
-      CheckAndKill(bluePath, blueHeartpos);
-      moveto(box.lastIndexOf('💙') - 2, currentPos, blueHeart);
-      
+      if(blueHeartpos + diceVal <= 38){
+        blueHeartpos += diceVal;
+        const currentPos = getCellAdderss(bluePath, blueHeartpos);
+        console.log(currentPos,blueHeartpos,'hii');
+        CheckAndKill(bluePath, blueHeartpos);
+        moveto(box.lastIndexOf('💙') - 2, currentPos, blueHeart);
+      }
     } else {
-      const lastPos = getCellAdderss(bluePath, blueCirclepos);
-      blueCirclepos += diceVal;
-      const currentPos = getCellAdderss(bluePath, blueCirclepos);
-      CheckAndKill(bluePath, blueCircle);
-      moveto(lastPos, currentPos, blueCircle);
+      if(blueCirclepos + diceVal <= 38){
+        const lastPos = getCellAdderss(bluePath, blueCirclepos);
+       blueCirclepos += diceVal;
+       const currentPos = getCellAdderss(bluePath, blueCirclepos);
+       console.log(currentPos);
+       CheckAndKill(bluePath, blueCircle);
+       moveto(lastPos, currentPos, blueCircle);
+      }
       
     }
   } else if (recursionControlVar % 4 === 2) {
     prompt("yellow choice press ENTER to roll dice");
-    diceVal = rollADice();
+    // diceVal = rollADice();
     if (confirm("you got !!! " + diceVal + "press 'Y' to move heart ")) {
+     if(yellowHeartpos <= 38){
       const lastPos = getCellAdderss(yellowPath, yellowHeartpos);
       yellowHeartpos += diceVal;
       const currentPos = getCellAdderss(yellowPath, yellowHeartpos);
+
+      console.log(currentPos);
       CheckAndKill(yellowPath, yellowHeartpos);
       moveto(box.lastIndexOf('💛') - 2, currentPos, yellowHeart);
+     }
       
     } else {
-      const lastPos = getCellAdderss(yellowPath, yellowCirclepos);
-      yellowCirclepos += diceVal;
-      const currentPos = getCellAdderss(yellowPath, yellowCirclepos);
-      CheckAndKill(yellowPath, yellowCircle);
-      moveto(lastPos, currentPos, yellowCircle);
+      if(yellowCirclepos <= 38){
+        const lastPos = getCellAdderss(yellowPath, yellowCirclepos);
+        yellowCirclepos += diceVal;
+        const currentPos = getCellAdderss(yellowPath, yellowCirclepos);
+        console.log(currentPos);
+        CheckAndKill(yellowPath, yellowCircle);
+        moveto(lastPos, currentPos, yellowCircle);
+      }
      
     }
   } else if (recursionControlVar % 4 === 3) {
     prompt("green choice press ENTER to roll dice");
-    diceVal = rollADice();
+    // diceVal = rollADice();
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
-      const lastPos = getCellAdderss(greenPath, greenHeartpos);
+      if(greenHeartpos + diceVal <= 38){
+        const lastPos = getCellAdderss(greenPath, greenHeartpos);
       greenHeartpos += diceVal;
       const currentPos = getCellAdderss(greenPath, greenHeartpos);
+      console.log(currentPos);
       CheckAndKill(greenPath, greenHeartpos);
       moveto(box.lastIndexOf('💚') - 2, currentPos, greenHeart);
+      }
       
     } else {
+     if(greenCirclepos <= 38){
       const lastPos = getCellAdderss(greenPath, greenCirclepos);
       greenCirclepos += diceVal;
       const currentPos = getCellAdderss(greenPath, greenCirclepos);
+      console.log(currentPos);
       CheckAndKill(greenPath, greenCircle);
       moveto(lastPos, currentPos, greenCircle);
+     }
      
     }
   } else if (recursionControlVar % 4 === 0) {
     prompt("white choice press ENTER to roll dice");
-    diceVal = rollADice();
+    // diceVal = rollADice();
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
-      const lastPos = getCellAdderss(whitePath, greenHeartpos);
-      whiteHeartpos += diceVal;
-      const currentPos = getCellAdderss(whitePath, whiteHeartpos);
-      CheckAndKill(whitePath, whiteHeartpos);
-      moveto(box.lastIndexOf('🤍') - 2, currentPos, whiteHeart);
+      if(whiteHeartpos <= 38){
+        const lastPos = getCellAdderss(whitePath, greenHeartpos);
+        whiteHeartpos += diceVal;
+        const currentPos = getCellAdderss(whitePath, whiteHeartpos);
+        console.log(currentPos);
+        CheckAndKill(whitePath, whiteHeartpos);
+        moveto(box.lastIndexOf('🤍') - 2, currentPos, whiteHeart);
+      }
       
     } else {
-      const lastPos = getCellAdderss(whitePath, whiteCirclepos);
-      whiteCirclepos += diceVal;
-      const currentPos = getCellAdderss(whitePath, whiteCirclepos);
-      CheckAndKill(whitePath, whiteCircle);
-      moveto(lastPos, currentPos, whiteCircle);
-      
+      if(whiteCirclepos <= 38){
+        const lastPos = getCellAdderss(whitePath, whiteCirclepos);
+        whiteCirclepos += diceVal;
+        const currentPos = getCellAdderss(whitePath, whiteCirclepos);
+        console.log(currentPos);
+        CheckAndKill(whitePath, whiteCircle);
+        moveto(lastPos, currentPos, whiteCircle);
+      }
     }
   }
   recursionControlVar += 1;
@@ -291,3 +315,6 @@ function gameCore() {
 console.log(box[520],'hii');
 // printBox()
 console.log(gameCore());
+
+
+console.log()
