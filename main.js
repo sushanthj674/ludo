@@ -1,7 +1,7 @@
-const ludoBigLetters = "\tL       |  U   U | DDDD    | OOOO \n" +
-"\tL       |  U   U | D    D  | O  O\n" +
-"\tL       |  U   U | D    D  | O  O\n" +
-"\tLLLLL   |  UUUUU | DDDD    | OOOO ";
+const ludoBigLetters = "\n\n\t||      |  || ||  |  ||||    |  |||| \n" +
+  "\t||      |  || ||  |  ||  ||  | ||  ||\n" +
+  "\t||      |  || ||  |  ||  ||  | ||  ||\n" +
+  "\t|||||   |  |||||  |  ||||    |  |||| ";
 
 const pathIndex = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0656';
 const bluePath = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0635-0640-0645-0651';
@@ -93,31 +93,7 @@ greenC = greenCircle;
 greenH = greenHeart;
 greenS = greenSquare;
 greenA = greenAnimal;
-let box =`
-┏━━━━━━━━━━━━━━━━━━━┳━━━━┯━━━━┯━━━━┳━━━━━━━━━━━━━━━━━━━┓
-┃ ┏━━━━━━━━━━━━━━━━┓┃    ┆    ┆    ┃┏━━━━━━━━━━━━━━━━┓ ┃
-┃ ┃                ┃┃┄┄┄┄┟━━━━┪┄┄┄┄┃┃                ┃ ┃
-┃ ┃    ` + blueC + `    ` + blueH + `    ┃┃    ┃    ┃    ┃┃    ` + yellowC + `    ` + yellowH + `    ┃ ┃
-┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃
-┃ ┃    ` + blueS + `    ` + blueA + `    ┃┃    ┃    ┃    ┃┃    ` + yellowS + `    ` + yellowA + `    ┃ ┃
-┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃
-┃ ┗━━━━━━━━━━━━━━━━┛┃    ┃    ┃    ┃┗━━━━━━━━━━━━━━━━┛ ┃
-┣━━━━┯━━━━┯━━━━┯━━━━╋━━━━┻━━━━┻━━━━╋━━━━┯━━━━┯━━━━┯━━━━┫
-┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃ 
-┃┄┄┄┄┟━━━━╈━━━━╈━━━━┫              ┣━━━━╈━━━━╈━━━━┪┄┄┄┄┃
-┃    ┃    ┃    ┃    ┃              ┃    ┃    ┃    ┃    ┃
-┃┄┄┄┄┡━━━━╇━━━━╇━━━━┫              ┣━━━━╇━━━━╇━━━━╇┄┄┄┄┃
-┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃
-┣━━━━┷━━━━┷━━━━┷━━━━╋━━━━┳━━━━┳━━━━╋━━━━┷━━━━┷━━━━┷━━━━┫
-┃ ┏━━━━━━━━━━━━━━━━┓┃    ┃    ┃    ┃┏━━━━━━━━━━━━━━━━┓ ┃
-┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃
-┃ ┃    ` + whiteC + `    ` + whiteH + `    ┃┃    ┃    ┃    ┃┃    ` + greenC + `    ` + greenH + `    ┃ ┃
-┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃
-┃ ┃    ` + whiteS + `    ` + whiteA + `    ┃┃    ┃    ┃    ┃┃    ` + greenS + `    ` + greenA + `    ┃ ┃
-┃ ┃                ┃┃┄┄┄┄┡━━━━╇┄┄┄┄┃┃                ┃ ┃
-┃ ┗━━━━━━━━━━━━━━━━┛┃    ┆    ┆    ┃┗━━━━━━━━━━━━━━━━┛ ┃
-┗━━━━━━━━━━━━━━━━━━━┻━━━━┷━━━━┷━━━━┻━━━━━━━━━━━━━━━━━━━┛`;
-
+let box = '\n┏━━━━━━━━━━━━━━━━━━━┳━━━━┯━━━━┯━━━━┳━━━━━━━━━━━━━━━━━━━┓\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┆    ┆    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┟━━━━┪┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + blueC + '    ' + blueH + '    ┃┃    ┃    ┃    ┃┃    ' + yellowC + '    ' + yellowH + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + blueS + '    ' + blueA + '    ┃┃    ┃    ┃    ┃┃    ' + yellowS + '    ' + yellowA + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┃    ┃    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┣━━━━┯━━━━┯━━━━┯━━━━╋━━━━┻━━━━┻━━━━╋━━━━┯━━━━┯━━━━┯━━━━┫\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃ \n┃┄┄┄┄┟━━━━╈━━━━╈━━━━┫              ┣━━━━╈━━━━╈━━━━┪┄┄┄┄┃\n┃    ┃    ┃    ┃    ┃              ┃    ┃    ┃    ┃    ┃\n┃┄┄┄┄┡━━━━╇━━━━╇━━━━┫              ┣━━━━╇━━━━╇━━━━╇┄┄┄┄┃\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃\n┣━━━━┷━━━━┷━━━━┷━━━━╋━━━━┳━━━━┳━━━━╋━━━━┷━━━━┷━━━━┷━━━━┫\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┃    ┃    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + whiteC + '    ' + whiteH + '    ┃┃    ┃    ┃    ┃┃    ' + greenC + '    ' + greenH + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + whiteS + '    ' + whiteA + '    ┃┃    ┃    ┃    ┃┃    ' + greenS + '    ' + greenA + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┡━━━━╇┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┆    ┆    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┗━━━━━━━━━━━━━━━━━━━┻━━━━┷━━━━┷━━━━┻━━━━━━━━━━━━━━━━━━━┛';
 function rollADice() {
   return Math.ceil(Math.random() * 6);
 }
@@ -139,28 +115,28 @@ function CheckAndKill(colorAddressBook, nextPosition) {
   const movingAddress = getCellAdderss(colorAddressBook, nextPosition);
   if (colorAddressBook !== greenPath && movingAddress === getCellAdderss(greenPath, greenCirclepos)) {
     greenCirclepos = -1;
-    moveto(movingAddress, greenCircleInitialpos,greenCircle);
+    moveto(movingAddress, greenCircleInitialpos, greenCircle);
   } else if (colorAddressBook !== greenPath && movingAddress === getCellAdderss(greenPath, greenHeartpos)) {
     greenHeartpos = -1;
-    moveto(box.lastIndexOf(greenHeart) - 2, greenHeartInitialpos,greenHeart);
+    moveto(box.lastIndexOf(greenHeart) - 2, greenHeartInitialpos, greenHeart);
   } else if (colorAddressBook !== yellowPath && movingAddress === getCellAdderss(yellowPath, yellowHeartpos)) {
     yellowHeartpos = -1;
-    moveto(box.lastIndexOf(yellowHeart) - 2, yellowHeartInitialpos,yellowHeart);
+    moveto(box.lastIndexOf(yellowHeart) - 2, yellowHeartInitialpos, yellowHeart);
   } else if (colorAddressBook !== yellowPath && movingAddress === getCellAdderss(yellowPath, yellowCirclepos)) {
     yellowCirclepos = -1;
-    moveto(movingAddress, yellowCircleInitialpos,yellowCircle);
+    moveto(movingAddress, yellowCircleInitialpos, yellowCircle);
   } else if (colorAddressBook !== whitePath && movingAddress === getCellAdderss(whitePath, whiteHeartpos)) {
     whiteHeartpos = -1;
-    moveto(box.lastIndexOf(whiteHeart) -2, whiteHeartInitialpos,whiteHeart);
+    moveto(box.lastIndexOf(whiteHeart) - 2, whiteHeartInitialpos, whiteHeart);
   } else if (colorAddressBook !== whitePath && movingAddress === getCellAdderss(whitePath, whiteCirclepos)) {
     whiteCirclepos = -1;
-    moveto(movingAddress, whiteCircleInitialpos,whiteCircle);
+    moveto(movingAddress, whiteCircleInitialpos, whiteCircle);
   } else if (colorAddressBook !== bluePath && movingAddress === getCellAdderss(bluePath, blueHeartpos)) {
     blueHeartpos = -1;
-    moveto(box.lastIndexOf(blueHeart) - 2, blueHeartInitialpos,blueHeart);
+    moveto(box.lastIndexOf(blueHeart) - 2, blueHeartInitialpos, blueHeart);
   } else if (colorAddressBook !== bluePath && movingAddress === getCellAdderss(bluePath, blueCirclepos)) {
     blueCirclepos = -1;
-    moveto(movingAddress, blueCircleInitialpos,blueCircle);
+    moveto(movingAddress, blueCircleInitialpos, blueCircle);
   }
 }
 
@@ -192,147 +168,160 @@ function moveto(currentPosition, nextPosition, replacement) {
 }
 let diceVal = 0;
 
+function executeBlueHeart(diceVal) {
+  blueHeartpos += diceVal;
+  const currentPos = getCellAdderss(bluePath, blueHeartpos);
 
-function are2PawnsIn(circlePos, heartPos, symbol, path) {
-  if (circlePos === -1 && heartPos === -1) {
-    blueC = '  ';
-    console.log(path);
-    moveto(box.lastIndexOf(symbol), getCellAdderss(path, 0), symbol);
-    return true;
-  }
-
-  return false;
+  CheckAndKill(bluePath, blueHeartpos);
+  moveto(box.lastIndexOf('💙') - 2, currentPos, blueHeart);
 }
 
-function selectPawn() {
-  const option = +prompt('1]Move circle\n2]Move heart\n\nSelect an option:');
-  return option;
-}
-
-function moveSymbol(circleScore, symbol, path) {
-  moveto(box.lastIndexOf(symbol), getCellAdderss(path, circleScore), symbol);
-}
-
-function checkBlue() {
-  if (are2PawnsIn(blueCirclepos, blueHeartpos, blueCircle, bluePath)) {
-    blueCirclepos = 0;
-    return true;
-  }
-
-  if (blueHeartpos === -1) {
-    const option = selectPawn();
-    if (option === 2) {
-      blueHeartpos = 0;
-      blueH = '  ';
-      return moveto(box.lastIndexOf(blueHeart) - 2, getCellAdderss(bluePath, 0), blueHeart);
-    }
-    moveSymbol(blueCirclepos += 6, blueCircle, bluePath);
-    return true;
-  }
-  return false;
-}
-
-function checkYellow() {
-  if (are2PawnsIn(yellowCirclepos, yellowHeartpos, yellowCircle, yellowPath)) {
-    yellowCirclepos = 0;
-    return true;
-  }
-
-  if (yellowHeartpos === -1) {
-    const option = selectPawn();
-    if (option === 2) {
-      yellowHeartpos = 0;
-      yellowH = '  ';
-      return moveto(box.lastIndexOf(yellowHeart) - 2, getCellAdderss(yellowPath, 0), yellowHeart);
-    }
-
-    moveSymbol(yellowCirclepos += 6, yellowCircle, yellowPath);
-    return true;
-  }
-  return false;
-}
-
-function checkGreen() {
-  if (are2PawnsIn(greenCirclepos, greenHeartpos, greenCircle, greenPath)) {
-    greenCirclepos = 0;
-    return true;
-  }
-
-  if (greenHeartpos === -1) {
-    const option = selectPawn();
-    if (option === 2) {
-      greenHeartpos = 0;
-      greenH = '  ';
-      return moveto(box.lastIndexOf(greenHeart) - 2, getCellAdderss(greenPath, 0), greenHeart);
-    }
-    moveSymbol(greenCirclepos += 6, greenCircle, greenPath);
-    return true;
-  }
-  return false;
-}
-
-function checkWhite() {
-  if (are2PawnsIn(whiteCirclepos, whiteHeartpos, whiteCircle, whitePath)) {
-    whiteCirclepos = 0;
-    return true;
-  }
-
-  if (whiteHeartpos === -1) {
-    const option = selectPawn();
-    if (option === 2) {
-      whiteHeartpos = 0;
-      whiteH = '  ';
-      return moveto(box.lastIndexOf(whiteHeart) - 2, getCellAdderss(whitePath, 0), whiteHeart);
-    }
-    moveSymbol(whiteCirclepos += 6, whiteCircle, whitePath);
-    return true;
-  }
-  return false;
-}
-
-function executeBlueHeart(diceVal){
-      blueHeartpos += diceVal;
-      const currentPos = getCellAdderss(bluePath, blueHeartpos);
-     
-      CheckAndKill(bluePath, blueHeartpos);
-      moveto(box.lastIndexOf('💙') - 2, currentPos, blueHeart);
-}
-
-function executeBlueCircle(){
-  if(blueCirclepos + diceVal <= 38){
+function executeBlueCircle() {
+  if (blueCirclepos + diceVal <= 38) {
 
     blueCirclepos += diceVal;
     const currentPos = getCellAdderss(bluePath, blueCirclepos);
-    
+
     CheckAndKill(bluePath, blueCirclepos);
     moveto(box.lastIndexOf(blueCircle), currentPos, blueCircle);
-   }
+  }
 }
 // ----------------------------------------------------------------------
-function executeBlue(){
+function executeBlue() {
   prompt("blue choice press ENTER to roll dice");
   diceVal = rollADice();
-  if(blueCirclepos + diceVal <= 38 && blueHeartpos + diceVal <= 38){
-    if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")){
+  if (blueCirclepos + diceVal <= 38 && blueHeartpos + diceVal <= 38) {
+    if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
       return executeBlueHeart(diceVal);
-    }else{
+    } else {
       return executeBlueCircle(diceVal);
     }
-    
-  }else if(blueCirclepos + diceVal <= 38 || blueHeartpos + diceVal <= 38){
-    if(blueCirclepos + diceVal <= 38){
+
+  } else if (blueCirclepos + diceVal <= 38 || blueHeartpos + diceVal <= 38) {
+    if (blueCirclepos + diceVal <= 38) {
       return executeBlueCircle(diceVal);
-    }else{
+    } else {
       return executeBlueHeart(diceVal);
     }
   }
-  
+
 }
 
+function executeYellow() {
+  prompt("blue choice press ENTER to roll dice");
+
+  if (yellowCirclepos + diceVal <= 38 && yellowHeartpos + diceVal <= 38) {
+    if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
+      return executeYellowHeart(diceVal);
+    } else {
+      return executeYellowCircle(diceVal);
+    }
+
+  } else if (yellowCirclepos + diceVal <= 38 || yellowHeartpos + diceVal <= 38) {
+    if (yellowCirclepos + diceVal <= 38) {
+      return executeYellowCircle(diceVal);
+    } else {
+      return executeYellowHeart(diceVal);
+    }
+  }
+}
+
+function executeYellowCircle() {
+  if (yellowCirclepos + diceVal <= 38) {
+
+    yellowCirclepos += diceVal;
+    const currentPos = getCellAdderss(yellowPath, yellowCirclepos);
+
+    CheckAndKill(yellowPath, yellowCirclepos);
+    moveto(box.lastIndexOf(yellowCircle), currentPos, yellowCircle);
+  }
+}
+function executeYellowHeart() {
+  yellowHeartpos += diceVal;
+  const currentPos = getCellAdderss(yellowPath, yellowHeartpos);
+
+  CheckAndKill(yellowPath, yellowHeartpos);
+  moveto(box.lastIndexOf(yellowHeart) - 2, currentPos, yellowHeart);
+}
+
+function executeWhiteHeart() {
+  whiteHeartpos += diceVal;
+  const currentPos = getCellAdderss(whitePath, whiteHeartpos);
+
+  CheckAndKill(whitePath, whiteHeartpos);
+  moveto(box.lastIndexOf('🤍') - 2, currentPos, whiteHeart);
+}
+
+function executeWhiteCircle() {
+  if (whiteCirclepos + diceVal <= 38) {
+
+    whiteCirclepos += diceVal;
+    const currentPos = getCellAdderss(whitePath, whiteCirclepos);
+
+    CheckAndKill(whitePath, whiteCirclepos);
+    moveto(box.lastIndexOf(whiteCircle), currentPos, whiteCircle);
+  }
+}
+// ----------------------------------------------------------------------
+function executeWhite() {
+  prompt("white choice press ENTER to roll dice");
+
+  if (whiteCirclepos + diceVal <= 38 && whiteHeartpos + diceVal <= 38) {
+    if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
+      return executeWhiteHeart();
+    } else {
+      return executeWhiteCircle();
+    }
+
+  } else if (whiteCirclepos + diceVal <= 38 || whiteHeartpos + diceVal <= 38) {
+    if (whiteCirclepos + diceVal <= 38) {
+      return executeWhiteCircle(diceVal);
+    } else {
+      return executeWhiteHeart(diceVal);
+    }
+  }
+
+}
+function executeGreenHeart() {
+  greenHeartpos += diceVal;
+  const currentPos = getCellAdderss(greenPath, greenHeartpos);
+
+  CheckAndKill(greenPath, greenHeartpos);
+  moveto(box.lastIndexOf('💚') - 2, currentPos, greenHeart);
+}
+
+function executeGreenCircle() {
+  if (greenCirclepos + diceVal <= 38) {
+
+    greenCirclepos += diceVal;
+    const currentPos = getCellAdderss(greenPath, greenCirclepos);
+
+    CheckAndKill(greenPath, greenCirclepos);
+    moveto(box.lastIndexOf(greenCircle), currentPos, greenCircle);
+  }
+}
+// ----------------------------------------------------------------------
+function executeGreen() {
+  prompt("Green choice press ENTER to roll dice");
+  if (greenCirclepos + diceVal <= 38 && greenHeartpos + diceVal <= 38) {
+    if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
+      return executeGreenHeart();
+    } else {
+      return executeGreenCircle();
+    }
+
+  } else if (greenCirclepos + diceVal <= 38 || greenHeartpos + diceVal <= 38) {
+    if (greenCirclepos + diceVal <= 38) {
+      return executeGreenCircle();
+    } else {
+      return executeGreenHeart();
+    }
+  }
+
+}
 
 function gameCore() {
-// console.clear();
-
+  console.clear();
   console.log(ludoBigLetters);
   printBox();
   validateScores();
@@ -345,99 +334,25 @@ function gameCore() {
   } else if (whiteHeartpos === 38 && whiteCirclepos === 38) {
     return 'white won🏆 the match🎉🥳';
   }
-
+  diceVal = rollADice();
   if (recursionControlVar % 4 === 1) {
-    executeBlue();
-    // prompt("blue choice press ENTER to roll dice");
-    //  diceVal = rollADice();
-    // if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
-    //   if(blueHeartpos + diceVal <= 38){
-    //     blueHeartpos += diceVal;
-    //     const currentPos = getCellAdderss(bluePath, blueHeartpos);
-       
-    //     CheckAndKill(bluePath, blueHeartpos);
-    //     moveto(box.lastIndexOf('💙') - 2, currentPos, blueHeart);
-    //   }
-    // } else {
-    //   if(blueCirclepos + diceVal <= 38){
+    prompt("Blue choice press ENTER to roll dice");
 
-    //    blueCirclepos += diceVal;
-    //    const currentPos = getCellAdderss(bluePath, blueCirclepos);
-       
-    //    CheckAndKill(bluePath, blueCirclepos);
-    //    moveto(box.lastIndexOf(blueCircle), currentPos, blueCircle);
-    //   }
-      
-    // }
+    executeBlue();
   } else if (recursionControlVar % 4 === 2) {
     prompt("yellow choice press ENTER to roll dice");
-     diceVal = rollADice();
-    if (confirm("you got !!! " + diceVal + "press 'Y' to move heart ")) {
-     if(yellowHeartpos <= 38){
-      yellowHeartpos += diceVal;
-      const currentPos = getCellAdderss(yellowPath, yellowHeartpos);
-      CheckAndKill(yellowPath, yellowHeartpos);
-      moveto(box.lastIndexOf('💛') - 2, currentPos, yellowHeart);
-     }
-      
-    } else {
-      if(yellowCirclepos <= 38){
-        yellowCirclepos += diceVal;
-        const currentPos = getCellAdderss(yellowPath, yellowCirclepos);
-      
-        CheckAndKill(yellowPath, yellowCirclepos);
-        moveto(box.lastIndexOf(yellowCircle), currentPos, yellowCircle);
-      }
-     
-    }
+    executeYellow();
   } else if (recursionControlVar % 4 === 3) {
     prompt("green choice press ENTER to roll dice");
-     diceVal = rollADice();
-    if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
-      if(greenHeartpos + diceVal <= 38){
-      greenHeartpos += diceVal;
-      const currentPos = getCellAdderss(greenPath, greenHeartpos);
-      
-      CheckAndKill(greenPath, greenHeartpos);
-      moveto(box.lastIndexOf('💚') - 2, currentPos, greenHeart);
-      }
-      
-    } else {
-     if(greenCirclepos <= 38){
-      greenCirclepos += diceVal;
-      const currentPos = getCellAdderss(greenPath, greenCirclepos);
-      
-      CheckAndKill(greenPath, greenCirclepos);
-      moveto(box.lastIndexOf(greenCircle), currentPos, greenCircle);
-     }
-     
-    }
+    executeGreen();
   } else if (recursionControlVar % 4 === 0) {
     prompt("white choice press ENTER to roll dice");
-     diceVal = rollADice() ;
-    if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
-      if(whiteHeartpos <= 38){
-        
-        whiteHeartpos += diceVal;
-        const currentPos = getCellAdderss(whitePath, whiteHeartpos);
-        
-        CheckAndKill(whitePath, whiteHeartpos);
-        moveto(box.lastIndexOf('🤍') - 2, currentPos, whiteHeart);
-      }
-      
-    } else {
-      if(whiteCirclepos <= 38){
-        whiteCirclepos += diceVal;
-        const currentPos = getCellAdderss(whitePath, whiteCirclepos);
-    
-        CheckAndKill(whitePath, whiteCirclepos);
-        moveto(box.lastIndexOf(whiteCircle), currentPos, whiteCircle);
-      }
-    }
+    executeWhite();
   }
   recursionControlVar += 1;
-  // printBox();
   return gameCore();
 }
 
 console.log(gameCore());
+
+
