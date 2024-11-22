@@ -93,7 +93,31 @@ greenC = greenCircle;
 greenH = greenHeart;
 greenS = greenSquare;
 greenA = greenAnimal;
-let box = '\n┏━━━━━━━━━━━━━━━━━━━┳━━━━┯━━━━┯━━━━┳━━━━━━━━━━━━━━━━━━━┓\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┆    ┆    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┟━━━━┪┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + blueC + '    ' + blueH + '    ┃┃    ┃    ┃    ┃┃    ' + yellowC + '    ' + yellowH + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + blueS + '    ' + blueA + '    ┃┃    ┃    ┃    ┃┃    ' + yellowS + '    ' + yellowA + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┃    ┃    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┣━━━━┯━━━━┯━━━━┯━━━━╋━━━━┻━━━━┻━━━━╋━━━━┯━━━━┯━━━━┯━━━━┫\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃ \n┃┄┄┄┄┟━━━━╈━━━━╈━━━━┫              ┣━━━━╈━━━━╈━━━━┪┄┄┄┄┃\n┃    ┃    ┃    ┃    ┃              ┃    ┃    ┃    ┃    ┃\n┃┄┄┄┄┡━━━━╇━━━━╇━━━━┫              ┣━━━━╇━━━━╇━━━━╇┄┄┄┄┃\n┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃\n┣━━━━┷━━━━┷━━━━┷━━━━╋━━━━┳━━━━┳━━━━╋━━━━┷━━━━┷━━━━┷━━━━┫\n┃ ┏━━━━━━━━━━━━━━━━┓┃    ┃    ┃    ┃┏━━━━━━━━━━━━━━━━┓ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + whiteC + '    ' + whiteH + '    ┃┃    ┃    ┃    ┃┃    ' + greenC + '    ' + greenH + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃\n┃ ┃    ' + whiteS + '    ' + whiteA + '    ┃┃    ┃    ┃    ┃┃    ' + greenS + '    ' + greenA + '    ┃ ┃\n┃ ┃                ┃┃┄┄┄┄┡━━━━╇┄┄┄┄┃┃                ┃ ┃\n┃ ┗━━━━━━━━━━━━━━━━┛┃    ┆    ┆    ┃┗━━━━━━━━━━━━━━━━┛ ┃\n┗━━━━━━━━━━━━━━━━━━━┻━━━━┷━━━━┷━━━━┻━━━━━━━━━━━━━━━━━━━┛';
+let box =`
+┏━━━━━━━━━━━━━━━━━━━┳━━━━┯━━━━┯━━━━┳━━━━━━━━━━━━━━━━━━━┓
+┃ ┏━━━━━━━━━━━━━━━━┓┃    ┆    ┆    ┃┏━━━━━━━━━━━━━━━━┓ ┃
+┃ ┃                ┃┃┄┄┄┄┟━━━━┪┄┄┄┄┃┃                ┃ ┃
+┃ ┃    ` + blueC + `    ` + blueH + `    ┃┃    ┃    ┃    ┃┃    ` + yellowC + `    ` + yellowH + `    ┃ ┃
+┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃
+┃ ┃    ` + blueS + `    ` + blueA + `    ┃┃    ┃    ┃    ┃┃    ` + yellowS + `    ` + yellowA + `    ┃ ┃
+┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃
+┃ ┗━━━━━━━━━━━━━━━━┛┃    ┃    ┃    ┃┗━━━━━━━━━━━━━━━━┛ ┃
+┣━━━━┯━━━━┯━━━━┯━━━━╋━━━━┻━━━━┻━━━━╋━━━━┯━━━━┯━━━━┯━━━━┫
+┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃ 
+┃┄┄┄┄┟━━━━╈━━━━╈━━━━┫              ┣━━━━╈━━━━╈━━━━┪┄┄┄┄┃
+┃    ┃    ┃    ┃    ┃              ┃    ┃    ┃    ┃    ┃
+┃┄┄┄┄┡━━━━╇━━━━╇━━━━┫              ┣━━━━╇━━━━╇━━━━╇┄┄┄┄┃
+┃    ┆    ┆    ┆    ┃              ┃    ┆    ┆    ┆    ┃
+┣━━━━┷━━━━┷━━━━┷━━━━╋━━━━┳━━━━┳━━━━╋━━━━┷━━━━┷━━━━┷━━━━┫
+┃ ┏━━━━━━━━━━━━━━━━┓┃    ┃    ┃    ┃┏━━━━━━━━━━━━━━━━┓ ┃
+┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃
+┃ ┃    ` + whiteC + `    ` + whiteH + `    ┃┃    ┃    ┃    ┃┃    ` + greenC + `    ` + greenH + `    ┃ ┃
+┃ ┃                ┃┃┄┄┄┄┣━━━━┫┄┄┄┄┃┃                ┃ ┃
+┃ ┃    ` + whiteS + `    ` + whiteA + `    ┃┃    ┃    ┃    ┃┃    ` + greenS + `    ` + greenA + `    ┃ ┃
+┃ ┃                ┃┃┄┄┄┄┡━━━━╇┄┄┄┄┃┃                ┃ ┃
+┃ ┗━━━━━━━━━━━━━━━━┛┃    ┆    ┆    ┃┗━━━━━━━━━━━━━━━━┛ ┃
+┗━━━━━━━━━━━━━━━━━━━┻━━━━┷━━━━┷━━━━┻━━━━━━━━━━━━━━━━━━━┛`;
+
 function rollADice() {
   return Math.ceil(Math.random() * 6);
 }
@@ -167,6 +191,104 @@ function moveto(currentPosition, nextPosition, replacement) {
   box = newBox;
 }
 let diceVal = 0;
+
+
+function are2PawnsIn(circlePos, heartPos, symbol, path) {
+  if (circlePos === -1 && heartPos === -1) {
+    blueC = '  ';
+    console.log(path);
+    moveto(box.lastIndexOf(symbol), getCellAdderss(path, 0), symbol);
+    return true;
+  }
+
+  return false;
+}
+
+function selectPawn() {
+  const option = +prompt('1]Move circle\n2]Move heart\n\nSelect an option:');
+  return option;
+}
+
+function moveSymbol(circleScore, symbol, path) {
+  moveto(box.lastIndexOf(symbol), getCellAdderss(path, circleScore), symbol);
+}
+
+function checkBlue() {
+  if (are2PawnsIn(blueCirclepos, blueHeartpos, blueCircle, bluePath)) {
+    blueCirclepos = 0;
+    return true;
+  }
+
+  if (blueHeartpos === -1) {
+    const option = selectPawn();
+    if (option === 2) {
+      blueHeartpos = 0;
+      blueH = '  ';
+      return moveto(box.lastIndexOf(blueHeart) - 2, getCellAdderss(bluePath, 0), blueHeart);
+    }
+    moveSymbol(blueCirclepos += 6, blueCircle, bluePath);
+    return true;
+  }
+  return false;
+}
+
+function checkYellow() {
+  if (are2PawnsIn(yellowCirclepos, yellowHeartpos, yellowCircle, yellowPath)) {
+    yellowCirclepos = 0;
+    return true;
+  }
+
+  if (yellowHeartpos === -1) {
+    const option = selectPawn();
+    if (option === 2) {
+      yellowHeartpos = 0;
+      yellowH = '  ';
+      return moveto(box.lastIndexOf(yellowHeart) - 2, getCellAdderss(yellowPath, 0), yellowHeart);
+    }
+
+    moveSymbol(yellowCirclepos += 6, yellowCircle, yellowPath);
+    return true;
+  }
+  return false;
+}
+
+function checkGreen() {
+  if (are2PawnsIn(greenCirclepos, greenHeartpos, greenCircle, greenPath)) {
+    greenCirclepos = 0;
+    return true;
+  }
+
+  if (greenHeartpos === -1) {
+    const option = selectPawn();
+    if (option === 2) {
+      greenHeartpos = 0;
+      greenH = '  ';
+      return moveto(box.lastIndexOf(greenHeart) - 2, getCellAdderss(greenPath, 0), greenHeart);
+    }
+    moveSymbol(greenCirclepos += 6, greenCircle, greenPath);
+    return true;
+  }
+  return false;
+}
+
+function checkWhite() {
+  if (are2PawnsIn(whiteCirclepos, whiteHeartpos, whiteCircle, whitePath)) {
+    whiteCirclepos = 0;
+    return true;
+  }
+
+  if (whiteHeartpos === -1) {
+    const option = selectPawn();
+    if (option === 2) {
+      whiteHeartpos = 0;
+      whiteH = '  ';
+      return moveto(box.lastIndexOf(whiteHeart) - 2, getCellAdderss(whitePath, 0), whiteHeart);
+    }
+    moveSymbol(whiteCirclepos += 6, whiteCircle, whitePath);
+    return true;
+  }
+  return false;
+}
 
 function executeBlueHeart(diceVal){
       blueHeartpos += diceVal;
@@ -319,5 +441,3 @@ function gameCore() {
 }
 
 console.log(gameCore());
-
-
