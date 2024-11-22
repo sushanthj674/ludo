@@ -40,3 +40,45 @@ function moveto(currentPosition, nextPosition, replacement) {
 
  
 }
+
+
+
+// for white
+function executeWhiteHeart(){
+  whiteHeartpos += diceVal;
+  const currentPos = getCellAdderss(whitePath, whiteHeartpos);
+ 
+  CheckAndKill(whitePath, whiteHeartpos);
+  moveto(box.lastIndexOf('🤍') - 2, currentPos, whiteHeart);
+}
+
+function executeWhiteCircle(){
+if(whiteCirclepos + diceVal <= 38){
+
+whiteCirclepos += diceVal;
+const currentPos = getCellAdderss(whitePath, whiteCirclepos);
+
+CheckAndKill(whitePath, whiteCirclepos);
+moveto(box.lastIndexOf(whiteCircle), currentPos, whiteCircle);
+}
+}
+// ----------------------------------------------------------------------
+function executeWhite(){
+prompt("white choice press ENTER to roll dice");
+diceVal = rollADice();
+if(whiteCirclepos + diceVal <= 38 && whiteHeartpos + diceVal <= 38){
+if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")){
+  return executeWhiteHeart();
+}else{
+  return executeWhiteCircle();
+}
+
+}else if(whiteCirclepos + diceVal <= 38 || whiteHeartpos + diceVal <= 38){
+if(whiteCirclepos + diceVal <= 38){
+  return executeWhiteCircle(diceVal);
+}else{
+  return executeWhiteHeart(diceVal);
+}
+}
+
+}
