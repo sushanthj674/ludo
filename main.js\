@@ -150,35 +150,6 @@ function validateScores() {
 function moveto(currentPosition, nextPosition, replacement) {
   let newBox = "";
   let space = 0;
-  if(""+currentPosition === 'NaN'){
-    switch(replacement){
-      case '💙':
-        currentPosition = blueHeartInitialpos - 2;
-        break;
-      case '💛':
-        currentPosition = yellowHeartInitialpos - 2;
-        break;
-      case '💚':
-        currentPosition = greenHeartInitialpos - 2;
-        break;
-      case '🤍':
-        currentPosition =whiteHeartInitialpos - 2;
-        break;
-      case '🔵':
-        currentPosition = blueCircleInitialpos;
-        break;
-      case '🟡':
-        currentPosition = yellowCircleInitialpos;
-        break;
-      case '🟢':
-        currentPosition = greenCircleInitialpos;
-        break;
-      case '⚪️':
-        currentPosition =whiteCircleInitialpos;
-        break;  
-    }
-  }
-
   if (replacement === '💙' || replacement === '💛' || replacement === '💚' || replacement === '🤍') {
     space -= 2;
   }
@@ -214,7 +185,7 @@ function gameCore() {
 
   if (recursionControlVar % 4 === 1) {
     prompt("blue choice press ENTER to roll dice");
-    // diceVal = rollADice();
+     diceVal = rollADice();
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
       const lastPos = getCellAdderss(bluePath, blueHeartpos);
       if(blueHeartpos + diceVal <= 38){
@@ -237,7 +208,7 @@ function gameCore() {
     }
   } else if (recursionControlVar % 4 === 2) {
     prompt("yellow choice press ENTER to roll dice");
-    // diceVal = rollADice();
+     diceVal = rollADice();
     if (confirm("you got !!! " + diceVal + "press 'Y' to move heart ")) {
      if(yellowHeartpos <= 38){
       const lastPos = getCellAdderss(yellowPath, yellowHeartpos);
@@ -262,7 +233,7 @@ function gameCore() {
     }
   } else if (recursionControlVar % 4 === 3) {
     prompt("green choice press ENTER to roll dice");
-    // diceVal = rollADice();
+     diceVal = rollADice();
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
       if(greenHeartpos + diceVal <= 38){
         const lastPos = getCellAdderss(greenPath, greenHeartpos);
@@ -286,7 +257,7 @@ function gameCore() {
     }
   } else if (recursionControlVar % 4 === 0) {
     prompt("white choice press ENTER to roll dice");
-    // diceVal = rollADice();
+     diceVal = rollADice();
     if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")) {
       if(whiteHeartpos <= 38){
         const lastPos = getCellAdderss(whitePath, greenHeartpos);
