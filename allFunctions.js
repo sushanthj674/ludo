@@ -107,3 +107,43 @@ function executeBlue() {
   }
 
 }
+
+
+//green function
+function executeGreenHeart(){
+  greenHeartpos += diceVal;
+  const currentPos = getCellAdderss(greenPath, greenHeartpos);
+ 
+  CheckAndKill(greenPath, greenHeartpos);
+  moveto(box.lastIndexOf('💚') - 2, currentPos, greenHeart);
+}
+
+function executeGreenCircle(){
+if(greenCirclepos + diceVal <= 38){
+
+greenCirclepos += diceVal;
+const currentPos = getCellAdderss(greenPath, greenCirclepos);
+
+CheckAndKill(greenPath, greenCirclepos);
+moveto(box.lastIndexOf(greenCircle), currentPos, greenCircle);
+}
+}
+// ----------------------------------------------------------------------
+function executeGreen(){
+prompt("Green choice press ENTER to roll dice");
+if(greenCirclepos + diceVal <= 38 && greenHeartpos + diceVal <= 38){
+if (confirm("you got !!! " + diceVal + " press 'Y' to move heart ")){
+  return executeGreenHeart();
+}else{
+  return executeGreenCircle();
+}
+
+}else if(greenCirclepos + diceVal <= 38 || greenHeartpos + diceVal <= 38){
+if(greenCirclepos + diceVal <= 38){
+  return executeGreenCircle();
+}else{
+  return executeGreenHeart();
+}
+}
+
+}
