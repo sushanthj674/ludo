@@ -3,7 +3,7 @@ const ludoBigLetters = "\n\n\t||      |  || ||  |  ||||    |  |||| \n" +
   "\t||      |  || ||  |  ||  ||  | ||  ||\n" +
   "\t|||||   |  |||||  |  ||||    |  |||| ";
 
-const pathIndex = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0656';
+// const pathIndex = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0656';
 const bluePath = '0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0635-0640-0645-0651';
 const yellowPath = '0203-0317-0431-0550-0555-0560-0565-0680-0794-0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0198-0312-0426-0538';
 const greenPath = '0789-0784-0779-0888-1002-1116-1230-1225-1220-1106-0992-0878-0759-0754-0749-0744-0630-0515-0520-0525-0530-0421-0307-0193-0079-0084-0089-0203-0317-0431-0550-0555-0560-0565-0680-0675-0670-0665-0659';
@@ -42,11 +42,6 @@ let greenCirclepos = -1;
 let blueCirclepos = -1;
 let yellowCirclepos = -1;
 let whiteCirclepos = -1;
-
-let greenScore = 0;
-let yellowScore = 0;
-let blueScore = 0;
-let whiteScore = 0;
 
 let recursionControlVar = 0;
 
@@ -112,7 +107,7 @@ function CheckAndKill(colorAddressBook, nextPosition) {
 function moveToken(currentPosition, nextPosition, replacement) {
   let newBox = "";
   let space = 0;
-  if (replacement === '💙' || replacement === '💛' || replacement === '💚' || replacement === '🤍') {
+  if (isTokenHeart(replacement)) {
     space -= 2;
   }
   for (let index = 0; index < box.length; index += 1) {
@@ -131,67 +126,6 @@ function moveToken(currentPosition, nextPosition, replacement) {
 
 let diceVal = 0;
 // ----------------------------------------------------------------------
-function executeBlue() {
-  if (blueCirclepos === -1 && diceVal !== 6) {
-    if (blueHeartpos === -1) {
-      return '';
-    }
-    return executeToken(blueHeartpos, bluePath, blueHeart);
-  }
-  if (blueHeartpos === -1 && diceVal !== 6) {
-    if (blueCirclepos === -1) {
-      return '';
-    }
-    return executeToken(blueCirclepos, bluePath, blueCircle);
-  }
-
-  if (blueCirclepos + diceVal <= 38 && blueHeartpos + diceVal <= 38) {
-    if (confirm(" press 'Y' to move heart ")) {
-      return executeToken(blueHeartpos, bluePath, blueHeart);
-    } else {
-      return executeToken(blueCirclepos, bluePath, blueCircle);
-    }
-
-  } else if (blueCirclepos + diceVal <= 38 || blueHeartpos + diceVal <= 38) {
-    if (blueCirclepos + diceVal <= 38) {
-      return executeToken(blueCirclepos, bluePath, blueCircle);
-    } else {
-      return executeToken(blueHeartpos, bluePath, blueHeart);
-    }
-  }
-
-}
-
-function executeYellow() {
-  if (yellowCirclepos === -1 && diceVal !== 6) {
-    if (yellowHeartpos === -1) {
-      return '';
-    }
-    return executeToken(yellowHeartpos, yellowPath, yellowHeart);
-  }
-  if (yellowHeartpos === -1 && diceVal !== 6) {
-    if (yellowCirclepos === -1) {
-      return '';
-    }
-    return executeToken(yellowCirclepos, yellowPath, yellowCircle);
-  }
-
-  if (yellowCirclepos + diceVal <= 38 && yellowHeartpos + diceVal <= 38) {
-    if (confirm(" press 'Y' to move heart ")) {
-      return executeToken(yellowHeartpos, yellowPath, yellowHeart);
-    } else {
-      return executeToken(yellowCirclepos, yellowPath, yellowCircle);
-    }
-
-  } else if (yellowCirclepos + diceVal <= 38 || yellowHeartpos + diceVal <= 38) {
-    if (yellowCirclepos + diceVal <= 38) {
-      return executeToken(yellowCirclepos, yellowPath, yellowCircle);
-    } else {
-      return executeToken(yellowHeartpos, yellowPath, yellowHeart);
-    }
-  }
-}
-
 function executeToken(tokenPosition, path, token) {
   if (tokenPosition + diceVal <= 38) {
 
@@ -236,70 +170,37 @@ function updateTokenPos(token, position) {
       break;
   }
 }
-
-function executeWhite() {
-  if (whiteCirclepos === -1 && diceVal !== 6) {
-    if (whiteHeartpos === -1) {
-      return '';
-    }
-    return executeToken(whiteHeartpos, whitePath, whiteHeart);
-  }
-  if (whiteHeartpos === -1 && diceVal !== 6) {
-    if (whiteCirclepos === -1) {
-      return '';
-    }
-    return executeToken(whiteCirclepos, whitePath, whiteCircle);
-  }
-
-  if (whiteCirclepos + diceVal <= 38 && whiteHeartpos + diceVal <= 38) {
-    if (confirm(" press 'Y' to move heart ")) {
-      // return executeWhiteHeart();
-      return executeToken(whiteHeartpos, whitePath, whiteHeart);
-    } else {
-      // return executeWhiteCircle();
-      return executeToken(whiteCirclepos, whitePath, whiteCircle);
-
-    }
-
-  } else if (whiteCirclepos + diceVal <= 38 || whiteHeartpos + diceVal <= 38) {
-    if (whiteCirclepos + diceVal <= 38) {
-      return executeToken(whiteCirclepos, whitePath, whiteCircle);
-    } else {
-      return executeToken(whiteHeartpos, whitePath, whiteHeart);
-    }
-  }
-
-}
-
 // ----------------------------------------------------------------------
-function executeGreen() {
-  if (greenCirclepos === -1 && diceVal !== 6) {
-    if (greenHeartpos === -1) {
+function executeColor(circlePos, heartPos, path, HeartToken, circleToken) {
+  if (circlePos === -1 && diceVal !== 6) {
+    if (heartPos === -1) {
       return '';
     }
-    return executeToken(greenHeartpos, greenPath, greenHeart);
+    return executeToken(heartPos, path, HeartToken);
   }
-  if (greenHeartpos === -1 && diceVal !== 6) {
-    if (greenCirclepos === -1) {
+
+  if (heartPos === -1 && diceVal !== 6) {
+    if (circlePos === -1) {
       return '';
     }
-    return executeToken(greenCirclepos, greenPath, greenCircle);
+    return executeToken(circlePos, path, circleToken);
   }
-  if (greenCirclepos + diceVal <= 38 && greenHeartpos + diceVal <= 38) {
+
+  if (circlePos + diceVal <= 38 && heartPos + diceVal <= 38) {
     if (confirm(" press 'Y' to move heart ")) {
-      return executeToken(greenHeartpos, greenPath, greenHeart);
+      return executeToken(heartPos, path, HeartToken);
     } else {
-      return executeToken(greenCirclepos, greenPath, greenCircle);
+      return executeToken(circlePos, path, circleToken);
     }
 
-  } else if (greenCirclepos + diceVal <= 38 || greenHeartpos + diceVal <= 38) {
-    if (greenCirclepos + diceVal <= 38) {
-      return executeToken(greenCirclepos, greenPath, greenCircle);
+  } else if (circlePos + diceVal <= 38 || heartPos + diceVal <= 38) {
+    if (circlePos + diceVal <= 38) {
+      return executeToken(circlePos, path, circleToken);
     } else {
-      return executeToken(greenHeartpos, greenPath, greenHeart);
+      return executeToken(heartPos, path, HeartToken);
     }
+
   }
-
 }
 function gameCore() {
   printBox();
@@ -317,22 +218,23 @@ function gameCore() {
 
   if (recursionControlVar % 4 === 1) {
     prompt("Blue choice press ENTER to roll dice");
-    executeBlue();
+    executeColor(blueCirclepos, blueHeartpos, bluePath, blueHeart, blueCircle);
+
   } else if (recursionControlVar % 4 === 2) {
     prompt("yellow choice press ENTER to roll dice");
     printBox();
+    executeColor(yellowCirclepos, yellowHeartpos, yellowPath, yellowHeart, yellowCircle);
 
-    executeYellow();
   } else if (recursionControlVar % 4 === 3) {
     prompt("green choice press ENTER to roll dice");
     printBox();
+    executeColor(greenCirclepos, greenHeartpos, greenPath, greenHeart, greenCircle);
 
-    executeGreen();
   } else if (recursionControlVar % 4 === 0) {
     prompt("white choice press ENTER to roll dice");
     printBox();
+    executeColor(whiteCirclepos, whiteHeartpos, whitePath, whiteHeart, whiteCircle);
 
-    executeWhite();
   }
   recursionControlVar += 1;
   return gameCore();
