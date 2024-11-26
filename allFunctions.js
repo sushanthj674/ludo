@@ -123,7 +123,48 @@ function kill(token,movingAddress){
 
 function CheckAndKill(colorAddressBook, nextPosition, token) {
   const movingAddress = getCellAdderss(colorAddressBook, nextPosition);
-  kill(token, movingAddress);
+  kill(token, movingAddress);function getSinRaidus(x, waveLength, amplitude) {
+
+  return Math.ceil(Math.sin(x * waveLength) * amplitude) + 20;
+}
+
+function delay(time) {
+  for (let i = 0; i < time * 500000; i++) {
+
+  }
+}
+
+function repeat(character, noOfTimes) {
+  if (noOfTimes < 0) {
+    return '';
+  }
+
+  return character + repeat(character, noOfTimes - 1);
+}
+
+function getLine(x, y, noOfTimes) {
+  let min = Math.min(x, y);
+  let distance = Math.abs(x - y);
+  //change variable name
+  const totalSpaces = repeat(' ', min);
+  const totalEqualtos = repeat(' ', (distance - 5));
+  const color1 = noOfTimes % 2 === 0 ? '🟢' : '🔴';
+  let color2 = color1 === '🔴' ? '🟢' : '🔴';
+  color2 = distance === 0 ? '' : color2;
+  
+  return totalSpaces + color1 + totalEqualtos + color2;
+}
+
+for (let noOfTimes = 0; noOfTimes < 23; noOfTimes++) {
+  for (let i = 0; i < 15; i += 2.5) {
+    const x = getSinRaidus(i, 0.2, 5);
+    const y = getSinRaidus(-i, 0.2, 5);
+    delay(200);
+    console.log(getLine(x, y, noOfTimes));
+  }
+
+}
+
   // if (colorAddressBook !== greenPath && movingAddress === getCellAdderss(greenPath, greenCirclepos)) {
   //   greenCirclepos = -1;
   //   moveToken(movingAddress, greenCircleInitialpos, greenCircle);
